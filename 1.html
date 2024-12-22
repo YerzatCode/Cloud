@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platonus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://iili.io/2wsDB2a.png');
+            box-sizing: border-box;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            padding-top: 10px;
+        }
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin: 40px auto; /* Центрируем контейнер */
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* margin: 100px auto; */
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        .header-left img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 20px;
+        }
+        .header-left .info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .header-left .info p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .header-right {
+            text-align: right;
+        }
+        .header-right p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .scrollable-container {
+            width: 90%;
+            max-width: 1200px;
+            max-height: 280px;
+            margin: 0px auto; /* Расположить ещё ниже */
+            overflow-y: auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1), -4px 0 8px rgba(0, 0, 0, 0.1); /* Тень для скроллируемой части */
+        }
+        .question {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            margin-bottom: 10px; /* Разделение вопросов */
+        }
+        .question h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+        .question p {
+            margin: 0;
+            font-size: 16px;
+        }
+    .answer {
+        color: green;
+        padding-left: 10px;
+    }
+    </style>
+
+    <script>
+      function startTimer(duration, display) {
+          let timer = duration, minutes, seconds;
+          setInterval(function () {
+              minutes = parseInt(timer / 60, 10);
+              seconds = parseInt(timer % 60, 10);
+
+              minutes = minutes < 10 ? "0" + minutes : minutes;
+              seconds = seconds < 10 ? "0" + seconds : seconds;
+
+              display.textContent = minutes + ":" + seconds;
+
+              if (--timer < 0) {
+                  timer = 0; // Останавливаем на 0
+              }
+          }, 1000);
+      }
+
+      window.onload = function () {
+          let twentyFiveMinutes = 25 * 60, // 25 минут
+              display = document.querySelector('#timer');
+          startTimer(twentyFiveMinutes, display);
+      };
+  </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <img src="" alt="">
+                <div class="info">
+                    <p>Дисциплина: <strong>Технологии искусственного интеллекта</strong></p>
+                    <p>Вид контроля: <strong>Экзамен</strong></p>
+                </div>
+            </div>
+            <div class="header-right">
+                <h3>Попыток: <span id="timer" class="timer">00:25:00</span></h3>
+                <p>Начало тестирования:</p>
+                <p>Завершение тестирования:</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scrollable Questions Section -->
+    <div class='scrollable-container'>
+      <div class='question'>
+        <p>Бұлтты сақтауды пайдалану үшін қандай негізгі шарт орындалуы керек?</p>
+      </div>
+      <div class='answer correct'>
+        <p>компьютер арқылы Интернетке кіру</p>
+      </div>
+      <div class='question'>
+        <p>Бұлтты технологияны қолданудың артықшылығы неде?</p>
+      </div>
+      <div class='answer correct'>
+        <p>планетаның кез-келген нүктесінен кез-келген уақытта деректерді басқару мүмкіндігі</p>
+      </div>
+      <div class='question'>
+        <p>Бұлтты технологияның кемшілігі?</p>
+      </div>
+      <div class='answer correct'>
+        <p>ақпаратты сақтаудағы тәуекел</p>
+      </div>
+      <div class='question'>
+        <p>Бұлттардың моделі қайсысы?</p>
+      </div>
+      <div class='answer correct'>
+        <p>PaaS, IaaS, SaaS</p>
+      </div>
+      <div class='question'>
+        <p>SaaS бұлт моделінің басты ерекшелігі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>белгілі бір бағдарламалар жиынтығымен жұмыс істеу</p>
+      </div>
+      <div class='question'>
+        <p>Дәстүрлі бұлт технологиясының қайсысы браузер поштасының аналогы болып табылады (Mail.ru, Yandex.ru және т. б.)
+        </p>
+      </div>
+      <div class='answer correct'>
+        <p>Mocrisoft Outlook</p>
+      </div>
+      <div class='question'>
+        <p>Болашақ тенденцияларды немесе мінез-құлықты болжау үшін есептеу жүйелері арқылы ретроспективті деректерді іздеу
+          қалай аталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Машиналық оқыту</p>
+      </div>
+      <div class='question'>
+        <p>Azure-ге жеке желілердің арнайы талшықты қосылыстары қалай аталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>ExpressRoute</p>
+      </div>
+      <div class='question'>
+        <p>Мазмұнды пайдаланушыларға Azure-де таратылған деректер орталықтарының сенімді желісінде жеткізу</p>
+      </div>
+      <div class='answer correct'>
+        <p>кэштеу серверлер желісі</p>
+      </div>
+      <div class='question'>
+        <p>Түйіннің операциялық жүйесінің файлдық жүйесінде файл ретінде сақталатын виртуалды машиналардың дискілік
+          бөлімдері:</p>
+      </div>
+      <div class='answer correct'>
+        <p>виртуалды дискілер</p>
+      </div>
+      <div class='question'>
+        <p>Пайдаланушылар мен топтарды басқарудың сенімді мүмкіндіктерін қамтамасыз ететін және Office 365 сияқты Microsoft
+          Online Services қызметтерін және SaaS үшінші тарап қосымшаларын қоса алғанда, қосымшаларға қауіпсіз қол
+          жетімділікті қамтамасыз ететін бұлтты сәйкестендіру және қол жеткізуді басқару шешімі – бұл</p>
+      </div>
+      <div class='answer correct'>
+        <p>Azure Active Directory</p>
+      </div>
+      <div class='question'>
+        <p>Бұлтты есептеу стандарттарын және олардың үйлесімділігін қай ұйым жасайды?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Open Cloud Consortium</p>
+      </div>
+      <div class='question'>
+        <p>Жеке ОЖ – Мен және физикалық компьютер сияқты қосымшалармен жұмыс істейтін оқшауланған бағдарламалық контейнер
+        </p>
+      </div>
+      <div class='answer correct'>
+        <p>Виртуалды машина</p>
+      </div>
+      <div class='question'>
+        <p>Нақты жабдыққа орнатылған операциялық жүйе қалай аталады? Осы операциялық жүйенің бөлігі ретінде виртуализация
+          бағдарламалық жасақтамасы әдеттегі қосымша ретінде орнатылады.</p>
+      </div>
+      <div class='answer correct'>
+        <p>хосттың операциялық жүйесі</p>
+      </div>
+      <div class='question'>
+        <p>Хосттың операциялық жүйесіне орнатылған және VM мониторынан және графикалық қабықтан тұратын бағдарламалық
+          жасақтама</p>
+      </div>
+      <div class='answer correct'>
+        <p>Виртуалды машина эмуляторы</p>
+      </div>
+      <div class='question'>
+        <p>Есептеу ресурстарының абстракциясы және қолданушыға өзінің іске асырылуын «инкапсуляциялайтын» (жасыратын) жүйені
+          ұсыну – бұл</p>
+      </div>
+      <div class='answer correct'>
+        <p>виртуализация</p>
+      </div>
+      <div class='question'>
+        <p>Құрылған виртуалды машинаға орнатылған операциялық жүйе</p>
+      </div>
+      <div class='answer correct'>
+        <p>қонақ операциялық жүйесі</p>
+      </div>
+      <div class='question'>
+        <p>Ресурстарды жеке бөліктерге логикалық бөлуге негізделген Виртуализация деп аталады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>домендік</p>
+      </div>
+      <div class='question'>
+        <p>Қонақ ОЖ ядросын модификациялау басқа виртуалды машиналармен қақтығыспай, аппаратурамен тікелей жұмыс істей
+          алатын жаңа API жиынтығын қамтитын тәсіл деп аталады</p>
+      </div>
+      <div class='answer correct'>
+        <p>паравиртуализация</p>
+      </div>
+      <div class='question'>
+        <p>Қонақ операциялық жүйелерінің өзгертілмеген даналарын қолданатын тәсіл, бірақ осы ОЖ-нің жұмысын қолдау үшін
+          әдеттегі операциялық жүйе ретінде әрекет ететін хост ОЖ-нің үстіне олардың орындалуын эмуляциялаудың жалпы қабаты
+          деп аталады</p>
+      </div>
+      <div class='answer correct'>
+        <p>толық виртуализация</p>
+      </div>
+      <div class='question'>
+        <p>Бағдарламалық эмуляцияның қандай түрін қолданған кезде нұсқаулар түсіндіріледі және нақты процессор қабылдаған
+          нұсқауларға айналады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>толық эмуляциялық нұсқаулар</p>
+      </div>
+      <div class='question'>
+        <p>Қандай виртуализация параллель жұмыс істейтін тәуелсіз жұмыс ортасын құру үшін бір хост ОЖ ядросын қолдануды
+          білдіреді?</p>
+      </div>
+      <div class='answer correct'>
+        <p>ОЖ ядросы деңгейінде виртуализация</p>
+      </div>
+      <div class='question'>
+        <p>Физикалық желіні бағдарламалық әдіспен толық іске асыру</p>
+      </div>
+      <div class='answer correct'>
+        <p>желіні виртуализациялау</p>
+      </div>
+      <div class='question'>
+        <p>Қандай виртуализация қосымшалардың әрбір данасы, оның барлық негізгі компоненттері: файлдар (соның ішінде
+          жүйелер), тізілім, қаріптер, INI файлдары, COM нысандары, қызметтері виртуализацияланатын ОЖ-мен басқарылатын
+          өзара әрекеттесуі бар қолданбалы оқшаулау моделін қолдануды білдіреді?</p>
+      </div>
+      <div class='answer correct'>
+        <p>қосымшаларды виртуализациялау</p>
+      </div>
+      <div class='question'>
+        <p>Қандай виртуализация пайдаланушы интерфейсін эмуляциялауды білдіреді, яғни пайдаланушы қосымшаны көреді және
+          онымен терминалда жұмыс істейді?</p>
+      </div>
+      <div class='answer correct'>
+        <p>көріністерді виртуализациялау</p>
+      </div>
+      <div class='question'>
+        <p>Қашықтағы жұмыс үстелімен және виртуализациямен қосылыстардың үйлесімі</p>
+      </div>
+      <div class='answer correct'>
+        <p>Virtual Desktop Infrastructure (VDI)</p>
+      </div>
+      <div class='question'>
+        <p>GPU виртуализациясы, қашықтан қол жеткізу және сеансты басқару шешімі, бұл бірнеше пайдаланушыларға GPU ортақ
+          ресурстарын қолдана отырып, графикалық бағдарламалармен бір уақытта жұмыс істеуге мүмкіндік береді</p>
+      </div>
+      <div class='answer correct'>
+        <p>Nvidia GRID технологиясы</p>
+      </div>
+      <div class='question'>
+        <p>Физикалық сақтау ресурстары үшін абстракция деңгейін қалыптастыратын және виртуалды ортада оларды бағыттауды,
+          оңтайландыруды және басқаруды қолдайтын мүмкіндіктердің үйлесімі</p>
+      </div>
+      <div class='answer correct'>
+        <p>сақтау виртуализациясы</p>
+      </div>
+      <div class='question'>
+        <p>Серверлердің, қоймалардың және желілердің ресурстарын жан-жақты виртуализациялауды, оларды біріктіруді және
+          қосымшаларға сұраныс бойынша және бизнестің басымдықтарына сәйкес дәл бөлуді қамтамасыз ететін компоненттер</p>
+      </div>
+      <div class='answer correct'>
+        <p>Инфрақұрылым қызметтері</p>
+      </div>
+      <div class='question'>
+        <p>VSphere платформасындағы барлық қосымшаларға, олардың түріне немесе ОЖ-ге қарамастан, қызмет көрсету деңгейлерін
+          басқаруды қамтамасыз ететін компоненттер</p>
+      </div>
+      <div class='answer correct'>
+        <p>қолданба қызметтері</p>
+      </div>
+      <div class='question'>
+        <p>Гипервизорды ядро, құрылғы драйверлері және енгізу/шығару стегі сияқты компоненттерді қамтитын бір деңгейде
+          қандай тәсіл орналастырады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>монолитті</p>
+      </div>
+      <div class='question'>
+        <p>Бөлімдерді оқшаулау мен жадты басқарудың негізгі міндеттерін ғана орындайтын өте жұқа, мамандандырылған
+          гипервизор қандай тәсілді қолданады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>микроядролық</p>
+      </div>
+      <div class='question'>
+        <p>Төмен деңгейлі ресурстарға (деректер қоймасы, есептеу құрылғылары және жа<VARIANT> қол жеткізуді ұсынатын бұлтты
+            есептеу қызметтерін пайдалану моделі деп аталады</p>
+      </div>
+      <div class='answer correct'>
+        <p>Инфрақұрылым қызмет ретінде</p>
+      </div>
+      <div class='question'>
+        <p>Қосымшаға «бұлттар»жағдайында жұмыс істеу мүмкіндігін қамтамасыз ететін қолданбалы бағдарламалық интерфейс.
+          Бағдарлама іс жүзінде бұлтты есептеу провайдері ұсынатын мамандандырылған операциялық жүйенің басқаруымен жұмыс
+          істейді.</p>
+      </div>
+      <div class='answer correct'>
+        <p>платформа қызмет ретінде</p>
+      </div>
+      <div class='question'>
+        <p>Бұлтты қызмет провайдері белгілі бір қосымшаның ішінде барлық бизнес логикасын жүзеге асыратын бұлтты есептеу
+          қызметтерін пайдалану моделі деп аталады</p>
+      </div>
+      <div class='answer correct'>
+        <p>қосымша қызмет ретінде</p>
+      </div>
+      <div class='question'>
+        <p>Өзара әрекеттесу моделі нақты анықталған интерфейстерді қолдана отырып, қосымшалардың (қызметтердің) әртүрлі
+          функционалды модульдерін бір-бірімен байланыстыратын компонент болып табылады</p>
+      </div>
+      <div class='answer correct'>
+        <p>сервиске бағытталған сәулет</p>
+      </div>
+      <div class='question'>
+        <p>Платформа қызмет ретінде</p>
+      </div>
+      <div class='answer correct'>
+        <p>PaaS моделі</p>
+      </div>
+      <div class='question'>
+        <p>Инфрақұрылым қызмет ретінде</p>
+      </div>
+      <div class='answer correct'>
+        <p>IaaS моделі</p>
+      </div>
+      <div class='question'>
+        <p>Бағдарламалық жасақтама қызмет ретінде</p>
+      </div>
+      <div class='answer correct'>
+        <p>SaaS моделі</p>
+      </div>
+      <div class='question'>
+        <p>Виртуалды бұлттың төрт түрі бар. Ұсынылған түрлердің қайсысы жоқ екенін анықтаңыз</p>
+      </div>
+      <div class='answer correct'>
+        <p>жүйелік</p>
+      </div>
+      <div class='question'>
+        <p>Жеке бұлт</p>
+      </div>
+      <div class='answer correct'>
+        <p>ұйымның меншігі</p>
+      </div>
+      <div class='question'>
+        <p>Ең көп қолданылатын бұлтты сақтау орындарының бірі</p>
+      </div>
+      <div class='answer correct'>
+        <p>Google Drive</p>
+      </div>
+      <div class='question'>
+        <p>Қоғамдық бұлт</p>
+      </div>
+      <div class='answer correct'>
+        <p>бірнеше ұйымдар арасында бөлінеді</p>
+      </div>
+      <div class='question'>
+        <p>Білім беруде бұлтты технологияларды қолдану мысалы</p>
+      </div>
+      <div class='answer correct'>
+        <p>қашықтық олимпиадалар</p>
+      </div>
+      <div class='question'>
+        <p>Бұлтты технологияның кемшілігі</p>
+      </div>
+      <div class='answer correct'>
+        <p>бұл деректер қоймасы, зиянкестер деректерді рұхратсыз иеленеді</p>
+      </div>
+      <div class='question'>
+        <p>Бұлтты сақтауға қойылатын негізгі талаптардың бірі</p>
+      </div>
+      <div class='answer correct'>
+        <p>сенімділік</p>
+      </div>
+      <div class='question'>
+        <p>Бағдарлама провайдерде немесе үшінші тарапта орналасқан және клиенттерге жазылым арқылы қол жетімді болатын
+          бағдарламалық жасақтаманы жеткізудің бизнес моделі қалай аталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>SaaS</p>
+      </div>
+      <div class='question'>
+        <p>Қосымша Коммуналдық деп аталады, егер…</p>
+      </div>
+      <div class='answer correct'>
+        <p>оны бірнеше клиент пайдаланған жағдайда</p>
+      </div>
+      <div class='question'>
+        <p>Бағдарламалық жасақтаманы тарату және пайдалану моделі қалай аталады, онда тұтынушы кез-келген платформадан,
+          соның ішінде мобильді құрылғылар мен планшеттік компьютерлерден, сондай-ақ кез-келген шолғыш арқылы жұмыс үстеліне
+          мобильді қол жеткізу үшін төлейді?</p>
+      </div>
+      <div class='answer correct'>
+        <p>DaaS</p>
+      </div>
+      <div class='question'>
+        <p>Бұлтты есептеу тұжырымдамасына негізделген қызметтер ретінде компьютерлік инфрақұрылымды (әдетте виртуализация
+          түрінде) ұсынудың бизнес моделі қалай аталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>IaaS</p>
+      </div>
+      <div class='question'>
+        <p>Компания орналастырылған ортаны өзінің ақпараттық орталығының логикалық кеңеюі ретінде пайдаланатын дәстүрлі
+          хостингтің аналогы қандай модель болып табылады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>IaaS</p>
+      </div>
+      <div class='question'>
+        <p>IaaS моделіндегі бұлттың негізгі физикалық және виртуалды инфрақұрылымын кім басқарады және бақылайды?</p>
+      </div>
+      <div class='answer correct'>
+        <p>бұлтты провайдер</p>
+      </div>
+      <div class='question'>
+        <p>PaaS моделіндегі бұлттың негізгі физикалық және виртуалды инфрақұрылымын кім басқарады және бақылайды?</p>
+      </div>
+      <div class='answer correct'>
+        <p>бұлтты провайдер</p>
+      </div>
+      <div class='question'>
+        <p>Егер компания басшылығы қазіргі компьютерлік Инфрақұрылым негізгі қызметті жүзеге асыру үшін жеткіліксіз екенін
+          түсінсе, бұлтты қызметтердің қандай түріне жүгінеді?</p>
+      </div>
+      <div class='answer correct'>
+        <p>IaaS</p>
+      </div>
+      <div class='question'>
+        <p>Тұтынушыға жаңа немесе қолданыстағы қосымшаларды кейіннен орналастыру үшін негізгі бағдарламалық жасақтаманы
+          орналастыру үшін бұлтты инфрақұрылымды пайдалану мүмкіндігі берілген бұлтты қызмет түрі қалай аталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>PaaS</p>
+      </div>
+      <div class='question'>
+        <p>Стандартты емес бағдарламалық жасақтаманы (ескірген, мамандандырылған, өзіндік бағдарламалық жасақтаманы және
+          тапсырыс бойынша жасалған) пайдаланатын компания бұлтты қызметтердің қандай түріне жүгінеді?</p>
+      </div>
+      <div class='answer correct'>
+        <p>PaaS</p>
+      </div>
+      <div class='question'>
+        <p>Тұтынушы әзірлеушілерге өздерінің бұлтты қосымшалары мен қызметтерін жобалау, құру және орналастыру үшін толық
+          орта беретін бұлтты қызметке қол жеткізген кезде бұлтты қызмет түрі қалай аталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>aPaaS</p>
+      </div>
+      <div class='question'>
+        <p>Өз клиенттеріне ұсынатын бұлтты қызметтердің түрі қалай аталады бұлтты қолдау олардың инфрақұрылымы?</p>
+      </div>
+      <div class='answer correct'>
+        <p>DaaS</p>
+      </div>
+      <div class='question'>
+        <p>Dropbox бұлтты қызметі не үшін қажет?</p>
+      </div>
+      <div class='answer correct'>
+        <p>деректерді сақтау үшін</p>
+      </div>
+      <div class='question'>
+        <p>WoMM принциптеріне негізделген маркетингтік стратегия дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>сарафанды радио</p>
+      </div>
+      <div class='question'>
+        <p>Мобильді қосымшалардың жақсарту мен IT өнімдерінің жақсартудың басты айырмашылығы неде?</p>
+      </div>
+      <div class='answer correct'>
+        <p>қолдану арнасының ерекшелігі</p>
+      </div>
+      <div class='question'>
+        <p>Егер бағдарламаны жасаушы «бөлісу» белгішесін орналастырса, қандай жақсарту әдісін қолданады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>WoM-маркетинг</p>
+      </div>
+      <div class='question'>
+        <p>Жақсарту әдісі ретінде мобильді қосымшалардың жарнамалық желісінің басты кемшілігі неде?</p>
+      </div>
+      <div class='answer correct'>
+        <p>жарнаманы таргеттеудің күрделілігі</p>
+      </div>
+      <div class='question'>
+        <p>Жарнаманы көргеннен кейін қосымшаны қанша адам орнатқанын көрсететін метрика қалай аталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>конверсия</p>
+      </div>
+      <div class='question'>
+        <p>Бағдарлама туралы таныстарына қанша қолданушы айтқанын көрсететін метрика қалай аталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>виральность</p>
+      </div>
+      <div class='question'>
+        <p>Retention көрсеткіші нені көрсетеді?</p>
+      </div>
+      <div class='answer correct'>
+        <p>қанша пайдаланушы бағдарламаға қайта оралды</p>
+      </div>
+      <div class='question'>
+        <p>Бұлтты технологияның ерекшеліктерін бөлектеңіз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>шығындарды азайту</p>
+      </div>
+      <div class='question'>
+        <p>Бұлтта қосымшаларды әзірлеуге және орындауға арналған бұлтты негізделген қызметті атаңыз?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Windows Azure</p>
+      </div>
+      <div class='question'>
+        <p>Бұлтта қосымшаларды әзірлеуге және орындауға арналған бұлтты негізделген қызметті атаңыз?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Amazon Web Service</p>
+      </div>
+      <div class='question'>
+        <p>Ұялы телефондарға арналған операциялық жүйелер арасында кім көшбасшы?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Android</p>
+      </div>
+      <div class='question'>
+        <p>Планшеттерге арналған операциялық жүйелер арасында кім көшбасшы?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Android</p>
+      </div>
+      <div class='question'>
+        <p>Google Play қолданбалар дүкенінің ерекшелігі неде?</p>
+      </div>
+      <div class='answer correct'>
+        <p>қолданбалардың алдын ала модерациясы жоқ</p>
+      </div>
+      <div class='question'>
+        <p>Мобильді құрылғылар нарығында қай қолданбалар дүкені көшбасшы болып табылады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>App Store</p>
+      </div>
+      <div class='question'>
+        <p>Сақтау үшін хабарлама кезегін қабылдайтын Веб-қызмет:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Amazon Simple Queue Service</p>
+      </div>
+      <div class='question'>
+        <p>Amazon S3 Веб-қызметі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>пайдаланушыларға кез-келген уақытта, кез-келген жерде Интернет арқылы деректердің кез-келген көлемін сақтауға
+          және қалпына келтіруге мүмкіндік беретін интерфейсті ұсынады</p>
+      </div>
+      <div class='question'>
+        <p>VMware View Платформасы:</p>
+      </div>
+      <div class='answer correct'>
+        <p>vSphetre платформасындағы виртуалды машиналарда пайдаланушы жұмыс станцияларын орталықтандыруды қамтамасыз ететін
+          өнімдер кешені</p>
+      </div>
+      <div class='question'>
+        <p>Бұл функциялардың қайсысы «бағыттау және қашықтан қол жеткізу»консолінен конфигурацияланбайды</p>
+      </div>
+      <div class='answer correct'>
+        <p>Active Directory</p>
+      </div>
+      <div class='question'>
+        <p>Аты аңызға айналған Megaupload негізін қалаушы Ким доткомның бұлтты файл алмасу құралы</p>
+      </div>
+      <div class='answer correct'>
+        <p>Mega</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure Web Sites-те веб-сайтты орналастыруға болатын бұлтты сақтау қызметі қалай аталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>DropBox</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure Web Sites-те қандай орналастыру опцияларына қолдау көрсетіледі?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Web Deploy, FTP, Git, TFS, DropBox, Mercurial</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure Web Sites-те қандай орналастыру опцияларына қолдау көрсетіледі?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Web Deploy</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure Web Sites үш режимде жұмыс істей алады: тегін, ортақ және стандартты. Автоматты масштабтауды қандай
+          режимде жүргізуге болады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Standard</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure Web Sites үш режимде жұмыс істей алады: тегін, Жалпы және стандартты. Автоматты масштабтауды қандай
+          режимде жүргізуге болады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Standard</p>
+      </div>
+      <div class='question'>
+        <p>Жеке домен атауын веб-сайтқа қай режимде қосуға болады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Shared, Standard</p>
+      </div>
+      <div class='question'>
+        <p>Жеке домен атауын веб-сайтқа қай режимде қосуға болады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Shared</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure Web Sites қандай модельді жүзеге асырады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>PaaS элементтері бар SaaS</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure Web Sites қандай модельді жүзеге асырады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>SaaS</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure Web Sites-те WordPress блогын қандай жағдайда орналастыруға болады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>WordPress блогы опциясында қол жетімді</p>
+      </div>
+      <div class='question'>
+        <p>Ірі компанияларда сервистерді жеткізу инфрақұрылымын оңтайландыру мақсатында қосымшаларды виртуалдандыруға және
+          жариялауға арналған Платформа:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Citrix XenApp</p>
+      </div>
+      <div class='question'>
+        <p>Worker рөліне өзіңіздің бағдарламалық жасақтамаңызды қалай орнатуға болады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>RDP және Startup-тапсырмаларды қосу арқылы</p>
+      </div>
+      <div class='question'>
+        <p>Конфигурация файлдары мен қызмет анықтамалары қандай рөл атқарады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>қызметті анықтау файлында рөлдердің сипаттамасы, оларға кіру нүктелері және көрсетілген мәндерсіз конфигурация
+          параметрлері бар</p>
+      </div>
+      <div class='question'>
+        <p>Физикалық серверлерді көптеген виртуалды машиналарға бөлетін Гипервизор:</p>
+      </div>
+      <div class='answer correct'>
+        <p>VMware ESX Server</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure Access Control Service жүйесінде қандай провайдерлерге қолдау көрсетіледі?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Live ID, Facebook, Google, Twitter, Custom</p>
+      </div>
+      <div class='question'>
+        <p>Service Bus-та қандай компоненттер бар?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Notification Hub</p>
+      </div>
+      <div class='question'>
+        <p>Гипервизорды жүзеге асыруға монолитті тәсілдің ерекшеліктері:</p>
+      </div>
+      <div class='answer correct'>
+        <p>драйверлер мен стекті пайдалану</p>
+      </div>
+      <div class='question'>
+        <p>VMware Ace Платформасы:</p>
+      </div>
+      <div class='answer correct'>
+        <p>қорғалған виртуалды машиналарды құруға арналған өнім</p>
+      </div>
+      <div class='question'>
+        <p>Паравиртуализацияны жүзеге асыру ерекшеліктері:</p>
+      </div>
+      <div class='answer correct'>
+        <p>ОЖ ядросының модификациясы оған жаңа API жиынтығын қосу</p>
+      </div>
+      <div class='question'>
+        <p>Паравиртуализацияны жүзеге асыру ерекшеліктері:</p>
+      </div>
+      <div class='answer correct'>
+        <p>хост функцияларын арнайы гипервизор жүйесі орындайды</p>
+      </div>
+      <div class='question'>
+        <p>SAN деректерді сақтау желісінің каскадты құрылымы</p>
+      </div>
+      <div class='answer correct'>
+        <p>ұяшықтар жиынтығы</p>
+      </div>
+      <div class='question'>
+        <p>SAN деректерді сақтау топологиясы желінің максималды байланысын қамтамасыз етеді:</p>
+      </div>
+      <div class='answer correct'>
+        <p>тор</p>
+      </div>
+      <div class='question'>
+        <p>San жоғары жылдамдықты коммутацияланған деректерді сақтау желісі деректермен алмасу протоколын қолданады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Fibre Channel</p>
+      </div>
+      <div class='question'>
+        <p>Деректерді сақтау жүйесі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>ақпараттық ресурстарды сенімді сақтауды ұйымдастыру жөніндегі бағдарламалық-аппараттық шешім</p>
+      </div>
+      <div class='question'>
+        <p>Mosso компаниясының PaaS технологиясының қай өнімі серверлік ОЖ таңдау мүмкіндігімен бір сағаттық серверді жалға
+          береді:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Cloud Servers</p>
+      </div>
+      <div class='question'>
+        <p>SaaS қолданбасын орналастыру моделі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>лицензияланбаған бағдарламалық жасақтаманы тиімді пайдалануға мүмкіндік береді</p>
+      </div>
+      <div class='question'>
+        <p>SaaS қолданбасын орналастыру моделі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>соңғы пайдаланушыға сұраныс бойынша қызмет ретінде қосымшаны ұсынуды білдіреді</p>
+      </div>
+      <div class='question'>
+        <p>Mosso компаниясының PaaS технологиясының қандай өнімі сақталатын файлдардың көлемі үшін ай сайынғы погигабайт
+          төлемі бар Cloud-хостинг қызметін ұсынады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Cloud Files</p>
+      </div>
+      <div class='question'>
+        <p>Тапсырыс беруші де, қызмет жеткізушісі де болып табылатын бір компанияның ішінде қызметтерді ұсыну үшін бұлтты
+          жүйелерді орналастырудың қандай нұсқасы қолданылады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>жеке бұлт</p>
+      </div>
+      <div class='question'>
+        <p>Өнім ерекшеліктері Ес2 Amazon компаниясының IaaS технологиясы:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Xen хостингі</p>
+      </div>
+      <div class='question'>
+        <p>Бұлтты есептеулерді қолданудың негізгі мәселелері:</p>
+      </div>
+      <div class='answer correct'>
+        <p>кез келген ақпаратқа қол жеткізе алуы</p>
+      </div>
+      <div class='question'>
+        <p>Бұлтты есептеулерді қолданудың негізгі мәселелері:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Интернетке тұрақты қосылуды талап етеді</p>
+      </div>
+      <div class='question'>
+        <p>Бұлтты жүйелерді орналастырудың қандай нұсқасын бұлтты провайдерлер сыртқы тұтынушыларға қызмет көрсету үшін
+          пайдаланады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>қоғамдық бұлт</p>
+      </div>
+      <div class='question'>
+        <p>SaaS бағдарламалық жасақтамасының негізгі ерекшеліктері:</p>
+      </div>
+      <div class='answer correct'>
+        <p>«бір-көп» моделі бойынша қосымшаларды жеткізу</p>
+      </div>
+      <div class='question'>
+        <p>SaaS бағдарламалық жасақтамасының негізгі ерекшеліктері:</p>
+      </div>
+      <div class='answer correct'>
+        <p>желі бойынша басқару және коммерциялық БҚ-ға желілік қолжетімділік орталықтандырылған ДӨО-да жүзеге асырылады</p>
+      </div>
+      <div class='question'>
+        <p>.NET Services қызметінің «қызмет шинасы» компоненті қандай операцияларды қамтиды:</p>
+      </div>
+      <div class='answer correct'>
+        <p>берілген қосымшалар үшін жаңа порттарды ашпай, желілік мекен-жайларды түрлендіру және желіаралық экрандар арқылы
+          өту мәселесін шешеді</p>
+      </div>
+      <div class='question'>
+        <p>Amazon CloudFront Веб-қызметі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>соңғы пайдаланушыларға жеткізу</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure сақтау:</p>
+      </div>
+      <div class='answer correct'>
+        <p>үлкен екілік нысандарды сақтауға мүмкіндік береді</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure сақтау:</p>
+      </div>
+      <div class='answer correct'>
+        <p>SQL құрылымдалған сұрау тілін қолданады</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure платформасының Net Services компоненті қандай функцияны орындайды</p>
+      </div>
+      <div class='answer correct'>
+        <p>«бұлтты» және жергілікті қосымшалар үшін таратылған инфрақұрылымды қамтамасыз етеді</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure платформасының SQL Azure компоненті қандай функцияны орындайды</p>
+      </div>
+      <div class='answer correct'>
+        <p>Server-де деректерді сақтау</p>
+      </div>
+      <div class='question'>
+        <p>Виртуализация - бұл:</p>
+      </div>
+      <div class='answer correct'>
+        <p>бағдарламалық логикамен біріктірілген, аппараттық бөліктен абстракцияланған есептеу қуатын беру тәсілі</p>
+      </div>
+      <div class='question'>
+        <p>Төменде көрсетілгендердің қайсысы виртуализация әдісі емес?</p>
+      </div>
+      <div class='answer correct'>
+        <p>ішінара виртуализация</p>
+      </div>
+      <div class='question'>
+        <p>Орналастыру сервері:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Windows тобының операциялық жүйелерінің Microsoft серверлік технологиясы желісі бойынша орнатуға арналған</p>
+      </div>
+      <div class='question'>
+        <p>Төменде көрсетілгендердің қайсысы орналастыру кезеңдеріне жатады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>орналастыруды жоспарлау</p>
+      </div>
+      <div class='question'>
+        <p>Операциялық жүйенің кескінін жасау үшін бағдарламаларды көрсетіңіз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Nero Burning ROM</p>
+      </div>
+      <div class='question'>
+        <p>Виртуалды машина менеджері қандай мүмкіндіктерді қамтиды?</p>
+      </div>
+      <div class='answer correct'>
+        <p>деректер орталығы</p>
+      </div>
+      <div class='question'>
+        <p>System Center 2012 R2 негізгі міндеті қандай:</p>
+      </div>
+      <div class='answer correct'>
+        <p>АТ-инфрақұрылымын мониторингілеу</p>
+      </div>
+      <div class='question'>
+        <p>Тек Windows Server-де қол жетімді Hyper-V компоненттерін көрсетіңіз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>талшықты арнаның виртуалды адаптері</p>
+      </div>
+      <div class='question'>
+        <p>PowerShell шақырылған виртуалды машиналардың тізімін алу үшін қайсы пәрменді қолданамыз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Get-VM</p>
+      </div>
+      <div class='question'>
+        <p>Hyper-V - бұл:</p>
+      </div>
+      <div class='answer correct'>
+        <p>төмен деңгейлі қабық негізіндегі виртуалдау технологиясы</p>
+      </div>
+      <div class='question'>
+        <p>Storage Spaces – бұл:</p>
+      </div>
+      <div class='answer correct'>
+        <p>диск кеңістігін виртуализациялау технологиясы</p>
+      </div>
+      <div class='question'>
+        <p>Hyper-V ата-ана бөлімінің компонентіне:</p>
+      </div>
+      <div class='answer correct'>
+        <p>виртуалды машинаның жұмыс процесі</p>
+      </div>
+      <div class='question'>
+        <p>Hyper-V ата-ана бөлімінің компонентіне:</p>
+      </div>
+      <div class='answer correct'>
+        <p>VMM</p>
+      </div>
+      <div class='question'>
+        <p>Hyper-V ата-ана бөлімінің компонентіне:</p>
+      </div>
+      <div class='answer correct'>
+        <p>VID</p>
+      </div>
+      <div class='question'>
+        <p>Hyper-V еншілес бөлімінің компонентіне:</p>
+      </div>
+      <div class='answer correct'>
+        <p>виртуализация қызметтерінің клиенттері</p>
+      </div>
+      <div class='question'>
+        <p>Hyper-V еншілес бөлімінің компонентіне:</p>
+      </div>
+      <div class='answer correct'>
+        <p>ОС кодындағы модификациялар</p>
+      </div>
+      <div class='question'>
+        <p>MS Virtual Server 5 R2 қолдайды:</p>
+      </div>
+      <div class='answer correct'>
+        <p>32 биттік хост</p>
+      </div>
+      <div class='question'>
+        <p>Hyper-V R2 қолдайды:</p>
+      </div>
+      <div class='answer correct'>
+        <p>64 биттік виртуалды машиналар</p>
+      </div>
+      <div class='question'>
+        <p>MS Virtual Server 5 R2 қолдайды:</p>
+      </div>
+      <div class='answer correct'>
+        <p>ресурстарды басқару мүмкіндігі</p>
+      </div>
+      <div class='question'>
+        <p>Ата-аналар мен балалар бөлімдері арасындағы жоғары жылдамдықты өзара әрекеттесу қамтамасыз етіледі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>VM шинасы</p>
+      </div>
+      <div class='question'>
+        <p>Ата-аналар бөліміне қонақтық ОЖ сұраныстары жіберіледі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>виртуалдау қызметтерінің клиенті</p>
+      </div>
+      <div class='question'>
+        <p>Виртуалды машинаны конфигурациялау, іске қосу, тоқтата тұру мәселелерін шешу қамтамасыз етіледі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>виртуалды машинаның жұмыс процесі</p>
+      </div>
+      <div class='question'>
+        <p>Дұрыс мәлімдемені таңдаңыз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>виртуализация ортасын Microsoft Hyper - V - ден Windows Server <question 2>8-ге Hyper-V рөлімен ауыстыруға болады
+        </p>
+      </div>
+      <div class='question'>
+        <p>Дұрыс мәлімдемені таңдаңыз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Windows Server-дің алдыңғы нұсқасын Microsoft Hyper-V серверіне жаңарту мүмкін емес</p>
+      </div>
+      <div class='question'>
+        <p>Дұрыс мәлімдемені таңдаңыз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Microsoft Hyper-V басқа серверлік рөлдерді қолдамайды</p>
+      </div>
+      <div class='question'>
+        <p>Microsoft Hyper-V Server R2 қолдайды:</p>
+      </div>
+      <div class='answer correct'>
+        <p>хост компьютеріндегі 4-тен астам процессор</p>
+      </div>
+      <div class='question'>
+        <p>Windows Server 2008 R2 Standard қолдайды:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Hyper-V-тен басқа серверлік рөлдерді пайдалану</p>
+      </div>
+      <div class='question'>
+        <p>Дұрыс анықтаманы таңдаңыз. VID-бұл:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Виртуалды машина драйвері</p>
+      </div>
+      <div class='question'>
+        <p>Дұрыс мәлімдемені таңдаңыз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>виртуалды машинада барлық стандартты компьютер компоненттері бар</p>
+      </div>
+      <div class='question'>
+        <p>Дұрыс мәлімдемені таңдаңыз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>виртуалды машиналар құрылғыларды эмуляциялауды қолдайды</p>
+      </div>
+      <div class='question'>
+        <p>Оқшауланған виртуалды орта аясында бағдарламалық шешімдерді қолдану:</p>
+      </div>
+      <div class='answer correct'>
+        <p>қосымшаларды виртуализациялау</p>
+      </div>
+      <div class='question'>
+        <p>Сақтау жүйелерін виртуалдандыру:</p>
+      </div>
+      <div class='answer correct'>
+        <p>файлдарды виртуализациялау және блоктарды виртуализациялау</p>
+      </div>
+      <div class='question'>
+        <p>Желінің ішкі виртуализациясы:</p>
+      </div>
+      <div class='answer correct'>
+        <p>бір хосттың бірнеше виртуалды машиналары арасында виртуалды желі құру</p>
+      </div>
+      <div class='question'>
+        <p>Файлдарды виртуализациялау бөлігі болып табылады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>сақтау жүйелерін виртуалдандыру</p>
+      </div>
+      <div class='question'>
+        <p>Зияткерлік жүктеме теңдестіру процесі бөлігі болып табылады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>серверлерді виртуализациялау</p>
+      </div>
+      <div class='question'>
+        <p>ОЖ виртуализациясы кейбір жағдайларда мүмкін емес:</p>
+      </div>
+      <div class='answer correct'>
+        <p>аппараттық қамтылымды виртуалдандыру</p>
+      </div>
+      <div class='question'>
+        <p>Блоктарды виртуализациялау бөлігі болып табылады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>сақтау жүйелерін виртуалдандыру</p>
+      </div>
+      <div class='question'>
+        <p>Қосымшамен жұмыс істеу мүмкіндігі, оның бөліктерінің физикалық орналасуына қарамастан, пайдалануды білдіреді:</p>
+      </div>
+      <div class='answer correct'>
+        <p>сервистерді виртуалдандыру</p>
+      </div>
+      <div class='question'>
+        <p>Бір хостта бірнеше ОЖ пайдалану қамтамасыз етіледі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>қосымшалар серверлерін виртуалдандыру</p>
+      </div>
+      <div class='question'>
+        <p>Негізгі жабдықты толық модельдеуді қамтамасыз етеді:</p>
+      </div>
+      <div class='answer correct'>
+        <p>толық виртуализация</p>
+      </div>
+      <div class='question'>
+        <p>Виртуалды ортада пайдалану үшін қонақ ОЖ дайындалатын виртуализация түрі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>паравиртуализация</p>
+      </div>
+      <div class='question'>
+        <p>Бір хостта бірнеше ОЖ-ны іске қосуды қамтамасыз ететін технология, ОЖ бір-бірінен және аппараттық ресурстардан
+          тәуелсіз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>аппараттық виртуализация</p>
+      </div>
+      <div class='question'>
+        <p>Виртуалды желіні сипаттауға болады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>желіні модельдеу</p>
+      </div>
+      <div class='question'>
+        <p>Виртуалды машинаны келесі жұмыс станцияларын виртуализациялау шешімінде тек хост басқарады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Windows Virtual PC</p>
+      </div>
+      <div class='question'>
+        <p>Есептеу ресурстарына сұраныстың біркелкі еместігі туралы ереже негіз болып табылады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>қосымшаларды орналастырудың «бұлтты» тәсілі</p>
+      </div>
+      <div class='question'>
+        <p>АТ-да есептеу ресурстарының абстракциясы деп түсініледі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>виртуализация</p>
+      </div>
+      <div class='question'>
+        <p>Виртуалды серверлер қабаты:</p>
+      </div>
+      <div class='answer correct'>
+        <p>аппараттық және кіші бағдарламалармен қамтамасыз ету</p>
+      </div>
+      <div class='question'>
+        <p>IaaS қосымшаларын орналастыру әдісімен клиент басқарады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>басқару ортасы</p>
+      </div>
+      <div class='question'>
+        <p>IaaS қосымшаларын орналастыру әдісімен клиент басқарады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>қосымшалар</p>
+      </div>
+      <div class='question'>
+        <p>IaaS қосымшаларын орналастыру әдісімен клиент басқарады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>мәліметтер базасы</p>
+      </div>
+      <div class='question'>
+        <p>PaaS қосымшаларын орналастыру әдісімен клиенттік басқару:</p>
+      </div>
+      <div class='answer correct'>
+        <p>қосымшалар</p>
+      </div>
+      <div class='question'>
+        <p>PaaS қосымшаларын орналастыру әдісімен клиент басқара алады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>қосымшалар</p>
+      </div>
+      <div class='question'>
+        <p>PaaS қолданбаларын орналастыру әдісімен клиент басқармайды:</p>
+      </div>
+      <div class='answer correct'>
+        <p>мәліметтер базасы</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure тәсілді қолданады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>PaaS</p>
+      </div>
+      <div class='question'>
+        <p>Дұрыс мәлімдемені таңдаңыз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Windows Azure IT инфрақұрылымын басқару процесін жеңілдетеді</p>
+      </div>
+      <div class='question'>
+        <p>Дұрыс мәлімдемені таңдаңыз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>Windows Azure қосымшаларды веб арқылы таратуға мүмкіндік береді</p>
+      </div>
+      <div class='question'>
+        <p>Дұрыс мәлімдемені таңдаңыз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>коммуникациялық сервистер «бұлтты» қызметтер ретінде барынша сұранысқа ие</p>
+      </div>
+      <div class='question'>
+        <p>Дұрыс мәлімдемені таңдаңыз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>корпоративтік бұлт құру-компанияның деректерді өңдеу орталықтарының эволюциялық дамуы</p>
+      </div>
+      <div class='question'>
+        <p>Дұрыс мәлімдемені таңдаңыз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>коммуникациялық сервистер «бұлтты» қызметтер ретінде барынша сұранысқа ие</p>
+      </div>
+      <div class='question'>
+        <p>«Бұлтты» қамтамасыз етуде пайда болатын қажеттіліктің болуын бағалауға болатын белгі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>тестілеу үшін жұмыс ортасын тез кеңейту қажеттілігі</p>
+      </div>
+      <div class='question'>
+        <p>«Бұлтты» қамтамасыз етуде пайда болатын қажеттіліктің болуын бағалауға болатын белгі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>тұтынылатын IT-ресурстардың есепке алу қажеттілігінің болуы</p>
+      </div>
+      <div class='question'>
+        <p>«Бұлтты» қамтамасыз етуде пайда болатын қажеттіліктің болуын бағалауға болатын белгі:</p>
+      </div>
+      <div class='answer correct'>
+        <p>пайдаланушы орталарының санына шектеулердің болмауы</p>
+      </div>
+      <div class='question'>
+        <p>«Қосымшаны бұлтқа орналастыру» сценарийі үшін:</p>
+      </div>
+      <div class='answer correct'>
+        <p>PaaS сияқты қосымшаны орналастыру</p>
+      </div>
+      <div class='question'>
+        <p>«Қосымшаны бұлтқа орналастыру» сценарийіне:</p>
+      </div>
+      <div class='answer correct'>
+        <p>IaaS сияқты қосымшаны орналастыру</p>
+      </div>
+      <div class='question'>
+        <p>«Қосымшаны бұлтқа орналастыру» сценарийі үшін:</p>
+      </div>
+      <div class='answer correct'>
+        <p>PaaS сияқты кодты орналастыру</p>
+      </div>
+      <div class='question'>
+        <p>«Бұлт қызметтерін пайдалану» сценарийі үшін тән:</p>
+      </div>
+      <div class='answer correct'>
+        <p>деректердің бір бөлігін бұлтқа көшіру</p>
+      </div>
+      <div class='question'>
+        <p>Бұлттағы веб-қызметтер не бола алмайды?</p>
+      </div>
+      <div class='answer correct'>
+        <p>компьютер қызмет ретінде</p>
+      </div>
+      <div class='question'>
+        <p>Microsoft Live жұмыс кеңістігі дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>кез келген компьютерден құжаттарға қол жеткізу</p>
+      </div>
+      <div class='question'>
+        <p>Нақты уақыттағы жұмыс кеңістігінде толық функционалдығы бар веб-шолғышты таңдаңыз</p>
+      </div>
+      <div class='answer correct'>
+        <p>Internet Explorer</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure кезегіне (VisibilityTimeout) хабарламаның көрінуін күту уақытын көрсетіңіз?</p>
+      </div>
+      <div class='answer correct'>
+        <p>2 сағат</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure-де масштабталатын қызметтерді дамыту, орналастыру және басқару үшін қажет қолданбалы бағдарламалау
+          интерфейсі қалай аталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Windows Azure үшін SDK пакеті</p>
+      </div>
+      <div class='question'>
+        <p>NET Service Bus іске асыруға не мүмкіндік береді?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Enterprise Service Bus үлгісін жүзеге асырады</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure Storage компоненттерін атаңыз</p>
+      </div>
+      <div class='answer correct'>
+        <p>Windows Azure Blob</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure Queue дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>асинхронды тапсырмаларды диспетчерлеу</p>
+      </div>
+      <div class='question'>
+        <p>Бұлтты есептеудің негізгі артықшылықтары қандай</p>
+      </div>
+      <div class='answer correct'>
+        <p>ақауларға төзімділік</p>
+      </div>
+      <div class='question'>
+        <p>Не выполняет.NET Access Control Service?</p>
+      </div>
+      <div class='answer correct'>
+        <p>бекіту негізінде Сәйкестендіру</p>
+      </div>
+      <div class='question'>
+        <p>Не выполняет.NET Access Control Service?</p>
+      </div>
+      <div class='answer correct'>
+        <p>авторизацияны орталықтандырылған басқару</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure Blob ең үлкен өлшемі қандай?</p>
+      </div>
+      <div class='answer correct'>
+        <p>50 Гб</p>
+      </div>
+      <div class='question'>
+        <p>Windows Azure-де масштабталатын қызметтерді дамыту, орналастыру және басқару үшін қажет қолданбалы бағдарламалау
+          интерфейсі қалай аталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Windows Azure SDK</p>
+      </div>
+      <div class='question'>
+        <p>Azure геолокация құралы не үшін жауап береді?</p>
+      </div>
+      <div class='answer correct'>
+        <p>бірнеше деректер орталықтарында деректердің қайталануы</p>
+      </div>
+      <div class='question'>
+        <p>NET Workflow Services міндеті:</p>
+      </div>
+      <div class='answer correct'>
+        <p>жұмыс процестерін басқару</p>
+      </div>
+      <div class='question'>
+        <p>. Windows Azure Blob дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>үлкен деректер элементтерін сақтау</p>
+      </div>
+      <div class='question'>
+        <p>. Бұлттың түрі?</p>
+      </div>
+      <div class='answer correct'>
+        <p>жеке бұлт</p>
+      </div>
+      <div class='question'>
+        <p>. Windows Azure кестесі дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>құрылымдық қызмет күйлерін сақтау</p>
+      </div>
+      <div class='question'>
+        <p>. Hadoop стекіне негізделген мәліметтер базасының қайсысы жұмыс істейді?</p>
+      </div>
+      <div class='answer correct'>
+        <p>HBase</p>
+      </div>
+      <div class='question'>
+        <p>. HBase кластерінің қай бөлігі клиенттерді басқа Master-server-ге ауыстырады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>ZooKeeper</p>
+      </div>
+      <div class='question'>
+        <p>. HBase-де Scan операторы қандай әрекетті орындайды?</p>
+      </div>
+      <div class='answer correct'>
+        <p>деректерді оқу кезінде кесінді алу</p>
+      </div>
+      <div class='question'>
+        <p>. HBase қолдану аймағы</p>
+      </div>
+      <div class='answer correct'>
+        <p>ДБ-ға жиі қайталанатын сұраулар</p>
+      </div>
+      <div class='question'>
+        <p>. Кассандрада қандай сұрау тілі қолданылады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>CQL</p>
+      </div>
+      <div class='question'>
+        <p>. Жад таратылған жүйелер үшін MapReduce іске асыруын таңдаңыз</p>
+      </div>
+      <div class='answer correct'>
+        <p>Apache Hadoop</p>
+      </div>
+      <div class='question'>
+        <p>. Үлкен деректер трендінің қалыптасуына әсер еткен маңызды оқиғаны белгілеңіз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>MapReduce принципінің өнертабысы</p>
+      </div>
+      <div class='question'>
+        <p>. MapReduce туралы қате мәлімдемені таңдаңыз:</p>
+      </div>
+      <div class='answer correct'>
+        <p>MapReduce Hadoop әзірлеушілері ойлап тапты</p>
+      </div>
+      <div class='question'>
+        <p>. Теориялық тұрғыдан өнімділік қанша есе артады. MapReduce бір түйіннен екіге ауысқан кезде мәтіндегі сөздердің
+          саны?</p>
+      </div>
+      <div class='answer correct'>
+        <p>2</p>
+      </div>
+      <div class='question'>
+        <p>. Келесі ДҚБЖ технологияларының қайсысы MapReduce принципін қолданбайды</p>
+      </div>
+      <div class='answer correct'>
+        <p>Redis</p>
+      </div>
+      <div class='question'>
+        <p>. Деректерді сақтау үшін Hadoop кластерін қолдану қандай деректер өлшемдерінен басталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>100Тб</p>
+      </div>
+      <div class='question'>
+        <p>. Hadoop-бұл:</p>
+      </div>
+      <div class='answer correct'>
+        <p>кластерлерде жұмыс істейтін, қызметтік бағдарламалар жиынтығы</p>
+      </div>
+      <div class='question'>
+        <p>. Есеп беру функциясын қамтамасыз ететін Windows Azure платформалық қызметі қалай аталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>SQL Azure Reporting</p>
+      </div>
+      <div class='question'>
+        <p>. MapReduce тәсілін не сипаттайды?</p>
+      </div>
+      <div class='answer correct'>
+        <p>map функциясы бірегей жазба енгізулерін іздейді. Reduce функциясы map нәтижелерін біріктіреді</p>
+      </div>
+      <div class='question'>
+        <p>. Жергілікті нұсқамен салыстырғанда бұлтты HDInsight қолданудың қандай артықшылықтары бар?</p>
+      </div>
+      <div class='answer correct'>
+        <p>сұрау бойынша виртуалды-шектеусіз масштабтау</p>
+      </div>
+      <div class='question'>
+        <p>. Amazon ұсынған бұлтты есептеу платформасын құрайтын есептеу веб-қызметтерінің жиынтығы</p>
+      </div>
+      <div class='answer correct'>
+        <p>Amazon Web Services</p>
+      </div>
+      <div class='question'>
+        <p>. Amazon Web Services-те жасалған қосымшаларға арналған шоттарды есептеу және басқару жүйесі</p>
+      </div>
+      <div class='answer correct'>
+        <p>Amazon DevPay</p>
+      </div>
+      <div class='question'>
+        <p>. Мазмұнды жеткізу желісі (CDN) объектілерді сұрауға жақын жерде жеткізу үшін – бұл</p>
+      </div>
+      <div class='answer correct'>
+        <p>Amazon CloudFront</p>
+      </div>
+      <div class='question'>
+        <p>. Масштабталатын, тұрақты қосымшаларды құруға арналған қызмет</p>
+      </div>
+      <div class='answer correct'>
+        <p>Amazon Simple Workflow (SWF)</p>
+      </div>
+      <div class='question'>
+        <p>. MySQL және Oracle қолдауымен масштабталатын дерекқор серверін ұсынатын жүйе</p>
+      </div>
+      <div class='answer correct'>
+        <p>Amazon Relational Database Service (RDS)</p>
+      </div>
+      <div class='question'>
+        <p>. Amazon Web Services инфрақұрылымына кіретін және бұлтта есептеу қуатын беретін Веб-қызмет қалай аталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Amazon Elastic Compute Cloud (Amazon EC2)</p>
+      </div>
+      <div class='question'>
+        <p>. Түйіннің операциялық жүйесінің файлдық жүйесінде файл ретінде сақталатын виртуалды машиналардың дискілік
+          бөлімдері</p>
+      </div>
+      <div class='answer correct'>
+        <p>виртуалды дискілер</p>
+      </div>
+      <div class='question'>
+        <p>. Бұлтты есептеу стандарттарын және олардың үйлесімділігін қай ұйым жасайды?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Open Cloud Consortium</p>
+      </div>
+      <div class='question'>
+        <p>. Бұлтты есептеу пайдаланушыларының мүдделерін көрсететін бұлтты стандарттарды әзірлеу</p>
+      </div>
+      <div class='answer correct'>
+        <p>Cloud Standards Customer Councll</p>
+      </div>
+      <div class='question'>
+        <p>. Корпоративтік және бұлтты есептеу ресурстарын басқару стандарттары</p>
+      </div>
+      <div class='answer correct'>
+        <p>Distributed Management Task Force</p>
+      </div>
+      <div class='question'>
+        <p>. Бұлтты жүйелерді басқару бойынша қай спецификациямен айналысады</p>
+      </div>
+      <div class='answer correct'>
+        <p>Cloud Data Management Interface (CDMI)</p>
+      </div>
+      <div class='question'>
+        <p>. Қытайда орнатылған бұлтты деректер қоймасы?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Yunpan 360</p>
+      </div>
+      <div class='question'>
+        <p>. Google дискісі қандай функцияларды іске асырмайды</p>
+      </div>
+      <div class='answer correct'>
+        <p>мобильді қосымша жасау</p>
+      </div>
+      <div class='question'>
+        <p>. Google құжаттарымен жұмыс істеу үшін ең жақсы браузер</p>
+      </div>
+      <div class='answer correct'>
+        <p>Mozilla Firefox</p>
+      </div>
+      <div class='question'>
+        <p>.Google құжаттарында қандай операцияларды орындау мүмкін емес?</p>
+      </div>
+      <div class='answer correct'>
+        <p>рендеринг</p>
+      </div>
+      <div class='question'>
+        <p>. Google Drive-та құжаттарды іздеу қалай жүзеге асырылады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>түрі, қолжетімділігі, меншік құқығы бойынша</p>
+      </div>
+      <div class='question'>
+        <p>. Кесте көмегімен Google дискте істеуге болады:</p>
+      </div>
+      <div class='answer correct'>
+        <p>өте үлкен топтар үшін бірлескен қызметтің түрлерін ұйымдастыру</p>
+      </div>
+      <div class='question'>
+        <p>. Виртуалды сыныптың көмегімен не істеуге болады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>ұзақ мерзімді оқу жобаларын қолдауға болады</p>
+      </div>
+      <div class='question'>
+        <p>. Презентация форматы мәтін мен кестеден қалай ерекшеленеді</p>
+      </div>
+      <div class='answer correct'>
+        <p>слайдтық құрылымының болуымен</p>
+      </div>
+      <div class='question'>
+        <p>. Презентациялар арналған:</p>
+      </div>
+      <div class='answer correct'>
+        <p>объект туралы ақпаратты ыңғайлы нысанда жеткізу</p>
+      </div>
+      <div class='question'>
+        <p>. Google мәтіндік құжаты мүмкіндік бермейді:</p>
+      </div>
+      <div class='answer correct'>
+        <p>мобильдік қосымшаны бағдарламалауға</p>
+      </div>
+      <div class='question'>
+        <p>. Azure-де мобильді қызметі қалай жасалады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>(New) түймесі арқылы</p>
+      </div>
+      <div class='question'>
+        <p>. Мобильді сервис үшін бұлтты деректер базасы қандай мақсатқа қажет?</p>
+      </div>
+      <div class='answer correct'>
+        <p>мобильді қосымша мен бұлттағы мобильді қызмет арасында ақпарат алмасу үшін</p>
+      </div>
+      <div class='question'>
+        <p>. Ұялы қызметтердің URL мекенжайлары үшін қандай формат қолданылады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>mymobileservice.azure-mobile.net</p>
+      </div>
+      <div class='question'>
+        <p>. Мобильді сервиске байланысты Мобильді қосымшаны құру қажет пе?</p>
+      </div>
+      <div class='answer correct'>
+        <p>мобильді қосымшасыз да жасау пайдалы болуы екіталай</p>
+      </div>
+      <div class='question'>
+        <p>. Windows Azure қызметтерін пайдаланатын мобильді қосымшаларды әзірлеу үшін қандай құрал қолданылады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Visual Studio 2012 Express for Windows Phone 8</p>
+      </div>
+      <div class='question'>
+        <p>. Windows Azure қандай мобильді платформаларға қолдау көрсетеді?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Windows Phone 8</p>
+      </div>
+      <div class='question'>
+        <p>. Мобильді құрылғылар үшін бұлтты есептеулерді қолданудың қазіргі мәселесі қандай?</p>
+      </div>
+      <div class='answer correct'>
+        <p>мобильді құрылғылар процессорларының жылдам әрекет етуі</p>
+      </div>
+      <div class='question'>
+        <p>. Функционалдылық дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>берілген әрекеттерді енгізуді талап ететін функционалдылық</p>
+      </div>
+      <div class='question'>
+        <p>. Деректер көзі туралы ақпарат қандай форматта беріледі?</p>
+      </div>
+      <div class='answer correct'>
+        <p>XML</p>
+      </div>
+      <div class='question'>
+        <p>. Бұлтты қосымшаларды тарату үшін Azure-де тағы қандай портал бар?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Azure App Store</p>
+      </div>
+      <div class='question'>
+        <p>. Java үшін Azure SDK мүмкіндіктері қандай?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Java қолданбалы серверін виртуалды машинада бұлтта іске қосу</p>
+      </div>
+      <div class='question'>
+        <p>. Бұлтты қосымшаны жасау үшін қандай жобаны қолдану керек?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Windows Azure Project</p>
+      </div>
+      <div class='question'>
+        <p>. Бұлтты қызметті орналастыру дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>ақпаратты жіберу</p>
+      </div>
+      <div class='question'>
+        <p>. Әзірленген қызметті бұлтқа орналастыру үшін қандай режим ұсынылады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>тек сервистік пакет құру</p>
+      </div>
+      <div class='question'>
+        <p>. Орналастыру кезінде қандай файлды көрсету керек?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Service package файлы</p>
+      </div>
+      <div class='question'>
+        <p>. Орналастырылған бұлтты веб-қызметтердің URL мекен-жайларының жалпы нысаны қандай?</p>
+      </div>
+      <div class='answer correct'>
+        <p>servicename.cloudapp.net</p>
+      </div>
+      <div class='question'>
+        <p>. Сервистік бұлт бумасының конфигурация файлының кеңейтімі қандай?</p>
+      </div>
+      <div class='answer correct'>
+        <p>cspkg</p>
+      </div>
+      <div class='question'>
+        <p>. Сертификаттарды жеткізуші?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Windows Live</p>
+      </div>
+      <div class='question'>
+        <p>. Azure-де VM рөлі қандай?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Виртуалды машина жұмыс істейтін процесс</p>
+      </div>
+      <div class='question'>
+        <p>. Бір виртуалды машинада бірнеше VM рөлдері орындалуы мүмкін бе?</p>
+      </div>
+      <div class='answer correct'>
+        <p>әр VM рөлі жеке VM-де орындалады</p>
+      </div>
+      <div class='question'>
+        <p>. Windows Azure Storage Blob дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Azure Storage-де екілік нысандарды сақтауға арналған құралдар</p>
+      </div>
+      <div class='question'>
+        <p>. Жаңа Storage account құру кезінде қандай үш веб-бет жасалады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>BLOB, Table және Queue нысандарын сақтау үшін</p>
+      </div>
+      <div class='question'>
+        <p>. Жеке бұлт дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>пайдаланушы барлық компоненттерді басқаратын бұлт</p>
+      </div>
+      <div class='question'>
+        <p>. Бұлт түрі қандай инфрақұрылым қызметі ретінде?</p>
+      </div>
+      <div class='answer correct'>
+        <p>ішкі жүйе қауіпсіздігін және деректер базасын басқаратын бұлт</p>
+      </div>
+      <div class='question'>
+        <p>. Бұлт түрі платформа қызметі ретінде?</p>
+      </div>
+      <div class='answer correct'>
+        <p>пайдаланушы тек өз қосымшаларын басқаратын бұлт</p>
+      </div>
+      <div class='question'>
+        <p>. Қызмет ретінде бұлт түрі қандай?</p>
+      </div>
+      <div class='answer correct'>
+        <p>бұлт, онда барлық компоненттерді провайдер басқарады және пайдаланушы дайын бұлтты қызметтерді пайдаланады</p>
+      </div>
+      <div class='question'>
+        <p>. Azure қай платформада қолданылмайды?</p>
+      </div>
+      <div class='answer correct'>
+        <p>ISpring</p>
+      </div>
+      <div class='question'>
+        <p>. Azure Active Directory дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>бұлтты каталогтарды құру және пайдаланушылардың кіруін басқару қызметі</p>
+      </div>
+      <div class='question'>
+        <p>. Service Bus дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>бұлтты хабар алмасу қызметтеріне арналған Azure шинасы</p>
+      </div>
+      <div class='question'>
+        <p>. Қолданбаны бұлтқа орналастыру дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>жадыға орналастыру және оны іске қосу</p>
+      </div>
+      <div class='question'>
+        <p>. Microsoft корпорациясы қандай ақысыз бұлтты қызметті ұсынады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Windows Live</p>
+      </div>
+      <div class='question'>
+        <p>. Windows Azure іске асыру қай платформаға негізделген?</p>
+      </div>
+      <div class='answer correct'>
+        <p>.NET</p>
+      </div>
+      <div class='question'>
+        <p>. Бұлтты есептеу пайдаланушысы қосымшалардың қандай түрін орындай алады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>бұлтты</p>
+      </div>
+      <div class='question'>
+        <p>. Intercloud дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>әр түрлі бұлттарды бір бұлтқа біріктіруге арналған стандарт</p>
+      </div>
+      <div class='question'>
+        <p>. Гибридті бұлт дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>жеке және қоғамдық бұлттың бірігуі</p>
+      </div>
+      <div class='question'>
+        <p>. Ашылмалы тізім қандай элемент?</p>
+      </div>
+      <div class='answer correct'>
+        <p>ComboBox</p>
+      </div>
+      <div class='question'>
+        <p>. Пайдаланушы енгізген мәтінді бір жолды мәтін өрісі қандай элемент жасайды және оның қасиеттерінің бірінде
+          сақтайды?</p>
+      </div>
+      <div class='answer correct'>
+        <p>TextBox</p>
+      </div>
+      <div class='question'>
+        <p>. Айналдыру жолағы бар тізім қандай элемент?</p>
+      </div>
+      <div class='answer correct'>
+        <p>ListBox</p>
+      </div>
+      <div class='question'>
+        <p>. Тұжырымдама аясында бұлтты пайдалану кезінде басқарылатын элементтерге қандай элементтер жатады платформа
+          қызмет ретінде</p>
+      </div>
+      <div class='answer correct'>
+        <p>қосымша</p>
+      </div>
+      <div class='question'>
+        <p>. NET дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>бағдарламалаудың көптілді платформасы</p>
+      </div>
+      <div class='question'>
+        <p>. Azure қызметінің конфигурациясы қай файлда анықталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>ServiceDefiniton</p>
+      </div>
+      <div class='question'>
+        <p>. Azure қызметінің құрылымы қалай анықталады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>ServiceConfiguration</p>
+      </div>
+      <div class='question'>
+        <p>. Жеке ОЖ-мен физикалық компьютер, сол сияқты қосымшалармен де жұмыс істейтін оқшауланған бағдарламалық контейнер
+        </p>
+      </div>
+      <div class='answer correct'>
+        <p>Виртуалды машина</p>
+      </div>
+      <div class='question'>
+        <p>. Нақты жабдыққа орнатылған операциялық жүйе қалай аталады? Осы операциялық жүйенің бөлігі ретінде виртуализация
+          бағдарламалық жасақтамасы әдеттегі қосымша ретінде орнатылады.</p>
+      </div>
+      <div class='answer correct'>
+        <p>хосттың операциялық жүйесі</p>
+      </div>
+      <div class='question'>
+        <p>. Құрылған виртуалды машинаға орнатылған операциялық жүйе</p>
+      </div>
+      <div class='answer correct'>
+        <p>қонақтың операциялық жүйесі</p>
+      </div>
+      <div class='question'>
+        <p>. Azure CDN дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Content Delivery Network-Кэштеу Серверлер Желісі</p>
+      </div>
+      <div class='question'>
+        <p>. Azure Account әкімшісіне қандай мүмкіндіктер бар?</p>
+      </div>
+      <div class='answer correct'>
+        <p>бірлескен әкімшіні құру</p>
+      </div>
+      <div class='question'>
+        <p>. Қонақтық ОЖ дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>клиенттік компьютерде жұмыс істейтін ОЖ</p>
+      </div>
+      <div class='question'>
+        <p>. Java үшін Windows Azure SDK дегеніміз не ?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Azure бұлтты қызметтерін дамытуға арналған API</p>
+      </div>
+      <div class='question'>
+        <p>. VB-де бұлтты қосымшаларды жасау үшін Visual Studio қажет пе?</p>
+      </div>
+      <div class='answer correct'>
+        <p>VB-да Visual Studio қажет</p>
+      </div>
+      <div class='question'>
+        <p>. Azure Media Services дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>бұлтта медиа файлдарды ойнату қызметтері</p>
+      </div>
+      <div class='question'>
+        <p>. Azure MarketPlace порталындағы өтімді кеңістік дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>орындарды брондау утилитасы</p>
+      </div>
+      <div class='question'>
+        <p>. Azure Marketplace порталындағы жарнама менеджері дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>жарнамаларды тарату бағдарламасы</p>
+      </div>
+      <div class='question'>
+        <p>. MarketPlace Azure порталындағы EarthPopulation дегеніміз?</p>
+      </div>
+      <div class='answer correct'>
+        <p>утилиталар мен мәліметтер базасы</p>
+      </div>
+      <div class='question'>
+        <p>. Гавайи жобасы дегеніміз не?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Бұлтты бағдарламалық жасақтаманы әзірлеу</p>
+      </div>
+      <div class='question'>
+        <p>. Гавайи жобасының болашағы неде?</p>
+      </div>
+      <div class='answer correct'>
+        <p>тұжырымдаманы дәлелдеу: мобильді құрылғыдан бұлтты есептеулерді қолдану</p>
+      </div>
+      <div class='question'>
+        <p>. Мобильді құрылғылар үшін бұлтты есептеулерді қолданудың қазіргі перспективасы</p>
+      </div>
+      <div class='answer correct'>
+        <p>жадының шектеулілігі және мобильді құрылғылар процессорларының тез әрекет етуі</p>
+      </div>
+      <div class='question'>
+        <p>. Гавайи жобасында Мобильді қосымшаларды жасау үшін қандай құрал қажет?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Гавайи SDK жобасы</p>
+      </div>
+      <div class='question'>
+        <p>. Гавайи жобасы нені іске асырады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>Әлеуметтік мобильді ақпарат алмасу</p>
+      </div>
+      <div class='question'>
+        <p>. Осы қызметтердің қайсысы Гавайи жобасының қызметтері болып табылады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>кілттерді сақтау қызметі</p>
+      </div>
+      <div class='question'>
+        <p>. Гавайи жобасы атқарады?</p>
+      </div>
+      <div class='answer correct'>
+        <p>ретрансляция</p>
+      </div>
+    </div>
+      <div style="display: flex; justify-content: center; margin-top: 20px;">
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #28a745; color: white; font-size: 16px;" disabled>1</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #adb6b0; color: white; font-size: 16px;" disabled>2</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #28a745; color: white; font-size: 16px;" disabled>3</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #adb6b0; color: white; font-size: 16px;" disabled>4</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #28a745; color: white; font-size: 16px;" disabled>5</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #28a745; color: white; font-size: 16px;" disabled>6</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #adb6b0; color: white; font-size: 16px;" disabled>7</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #28a745; color: white; font-size: 16px;" disabled>8</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #28a745; color: white; font-size: 16px;" disabled>9</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #adb6b0; color: white; font-size: 16px;" disabled>10</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #28a745; color: white; font-size: 16px;" disabled>11</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #adb6b0; color: white; font-size: 16px;" disabled>12</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #28a745; color: white; font-size: 16px;" disabled>13</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #28a745; color: white; font-size: 16px;" disabled>14</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #adb6b0; color: white; font-size: 16px;" disabled>15</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #adb6b0; color: white; font-size: 16px;" disabled>16</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #adb6b0; color: white; font-size: 16px;" disabled>17</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #adb6b0; color: white; font-size: 16px;" disabled>18</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #28a745; color: white; font-size: 16px;" disabled>19</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #adb6b0; color: white; font-size: 16px;" disabled>20</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #adb6b0; color: white; font-size: 16px;" disabled>21</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #adb6b0; color: white; font-size: 16px;" disabled>22</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #adb6b0; color: white; font-size: 16px;" disabled>23</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #28a745; color: white; font-size: 16px;" disabled>24</button>
+          <button style="width: 40px; height: 40px; margin: 1px; border: none; border-radius: 5px; background-color: #28a745; color: white; font-size: 16px;" disabled>25</button>
+      </div>
+  </div>
+  
+  
+</body>
+</html>
